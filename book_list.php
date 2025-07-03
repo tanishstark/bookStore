@@ -92,7 +92,7 @@
 
                 echo '<div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="book-card p-2">
-                    <a class="text-decoration-none text-dark" href="#"><img src="image/booklist/' . $po_category_name . '_' . $booklist_change_img . '.jpeg" class="book-img" alt="' . $book_title . '">
+                    <a class="text-decoration-none text-dark" href="book_details.php"><img src="image/booklist/' . $po_category_name . '_' . $booklist_change_img . '.jpeg" class="book-img" alt="' . $book_title . '">
                         <div class="p-2">
                             <h6>' . $book_title . '</h6>
                             <div class="rating">' . $ratings . '</div>

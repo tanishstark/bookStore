@@ -4,20 +4,18 @@
   <meta charset="UTF-8">
   <title>The Alchemist – BookHarbor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap 5 CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body style="background-color: #f2f4f7; font-family: 'Segoe UI', sans-serif;">
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4">
-    <a class="navbar-brand text-primary fw-bold" href="#" style="font-size: 1.4rem;">📚 BookHarbor</a>
-    <div class="ms-auto">
-      <a href="home_page.php" class="btn btn-link text-decoration-none text-dark me-3">Home</a>
-      <a href="categories.php" class="btn btn-link text-decoration-none text-dark me-3">Categories</a>
-      <a href="login.php" class="btn btn-primary btn-sm px-3">Login</a>
-    </div>
-  </nav>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/_navbar_style.css" />
+  <link rel="stylesheet" href="css/_footer.css" />
+</head>
+
+  <?php
+    include 'partials/_dbconnect.php'; 
+    include 'partials/_navbar.php'; 
+  ?>
 
   <!-- Book Details Section -->
   <div class="container py-5">
