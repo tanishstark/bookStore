@@ -1,2 +1,3 @@
 # BookStore 
-if any one wants to edit this web site then kindly ask otherwise create new branch and do what ever you wants
+If anyone wants to edit this website, then kindly ask; otherwise, create a new branch and do whatever you want.
+Now both branches have the same things
