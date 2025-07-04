@@ -79,7 +79,7 @@
 
           while ($row = mysqli_fetch_assoc($result)) {
             $name = $row['book_title'];
-            // $desc = $row['book_desc'];
+            $desc = $row['book_desc'];
             $ratings = $row['ratings'];
             $retail_price = $row['book_disc_price'];
             $original_price = $row['original_price'];
@@ -92,7 +92,7 @@
 
           echo "
           <h1 class='fw-bold mb-2' style='font-size: 2rem;'>".$name."</h1>
-          <p class='text-muted mb-3' style='font-size: 1.05rem;'>A shepherd boy’s magical journey to realize his destiny. A spiritual guide wrapped in a compelling story, celebrated worldwide for its depth and simplicity.</p>
+          <p class='text-muted mb-3' style='font-size: 1.05rem;'>".$desc."</p>
 
           <div class='mb-3'>
           <span class='badge bg-warning' style='font-size: 0.9rem;'>".$ratings."</span>
