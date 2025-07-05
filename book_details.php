@@ -16,7 +16,6 @@
   body {
     font-family: 'Inter', sans-serif;
     background-color: #f8f9fa;
-    padding: 40px 15px;
   }
 
   .review-form, .reviews-section {
@@ -53,14 +52,7 @@
 <!-- Book Details Section -->
 <div class="container py-5">
   <div class="row g-4 align-items-start">
-    <!-- Book Image -->
-    <div class="col-md-4 text-center">
-      <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" alt="Book Cover"
-        class="img-fluid shadow-sm rounded" style="max-height: 420px;">
-    </div>
-
-    <!-- Book Info -->
-    <div class="col-md-8">
+   
       <?php
         
         if($_SERVER['REQUEST_METHOD'] == 'GET'){
@@ -78,6 +70,7 @@
           $result = mysqli_query($conn, $query);
 
           while ($row = mysqli_fetch_assoc($result)) {
+            $image = $row['image'];
             $name = $row['book_title'];
             $desc = $row['book_desc'];
             $ratings = $row['ratings'];
@@ -89,8 +82,16 @@
             $ISBN = $row['ISBN'];
             $percentage = round(($retail_price / $original_price) * 100);
           }
-
+          
           echo "
+           <!-- Book Image -->
+          <div class='col-md-4 text-center'>
+            <img src='$image' alt='Book Cover'
+              class='img-fluid shadow-sm rounded' style='max-height: 420px;'>
+          </div>
+
+           <!-- Book Info -->
+          <div class='col-md-8'>
           <h1 class='fw-bold mb-2' style='font-size: 2rem;'>".$name."</h1>
           <p class='text-muted mb-3' style='font-size: 1.05rem;'>".$desc."</p>
 

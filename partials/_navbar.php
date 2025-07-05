@@ -16,6 +16,7 @@
     <a href="contact.php">Contact</a>';
   if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     echo '
+      <a class="btn btn-outline-primary mx-0" href="admin.php">Admin</a>
     <div class="d-flex align-items-center account-hover" style="gap: 12px; background-color: rgba(68, 117, 145, 0.2); padding: 6px 12px; border-radius: 20px; cursor: pointer; transition: background-color 0.3s ease;">
       <img src="https://img.icons8.com/ios-filled/50/user.png" alt="User Icon" style="width: 28px; height: 28px; border-radius: 50%; background-color:rgb(17, 142, 221);">
       <span class="text-dark fw-medium" style="font-size: 16px;">' . ($_SESSION['userName']) . '</span>
