@@ -211,22 +211,27 @@ session_start();
             <div class="team-member">
                 <img src="image/tanish3.jpg" alt="Team Member">
                 <h4>Tanish Kumar</h4>
-                <p>SME at Chegg</p>
+                <p>Backend Developer</p>
             </div>
             <div class="team-member">
-                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Team Member">
+                <img src="image/img1.jpg" alt="Team Member">
                 <h4>Sanjeevni Dey</h4>
-                <p>Topper</p>
+                <p>Backend Developer</p>
             </div>
             <div class="team-member">
-                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Team Member">
-                <h4>Sourab Kuswaha</h4>
-                <p>Node.js Master</p>
+                <img src="image/img2.jpg" alt="Team Member">
+                <h4>Saurabh Kumar Kushwaha</h4>
+                <p>Frontend Developer</p>
             </div>
             <div class="team-member">
-                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Team Member">
+                <img src="image/img3.jpg" alt="Team Member">
                 <h4>Mohit Rana</h4>
-                <p>UI/UX</p>
+                <p>UI/UX Designer</p>
+            </div>
+            <div class="team-member">
+                <img src="image/img4.jpg" alt="Team Member">
+                <h4>Uday Shankar Mehta</h4>
+                <p>UI/UX Designer</p>
             </div>
 
         </div>
