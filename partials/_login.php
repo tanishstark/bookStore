@@ -49,6 +49,16 @@
 <body>
 
     <?php
+    if (isset($_GET['visit'])) {
+        $visit = $_GET['visit'];
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Failed!</strong> ' . $visit . '
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>';
+    }
+    ?>
+
+    <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         include '_dbconnect.php';
         session_start();
@@ -103,18 +113,23 @@
                             Remember me
                         </label>
                     </div>
-                    <a href="#" class="text-decoration-none small">Forgot password?</a>
+                    <a href="#" class="text-success text-decoration-none small">Forgot password?</a>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100">Login</button>
+                <button type="submit" class="btn btn-success w-100">Login</button>
             </form>
 
             <p class="mt-3 text-center small">
-                Don’t have an account? <a href="#" class="text-primary text-decoration-none">Sign up here</a>
+                Don’t have an account? <a href="_signin.php" class="text-success text-decoration-none">Sign up here</a>
             </p>
         </div>
     </div>
 
+    <div class="p-4">
+        <a href="javascript:history.back()" class="btn btn-dark d-inline-flex align-items-center">
+            <i class="bi bi-arrow-left me-2"></i> Back
+        </a>
+    </div>
     <footer>
         &copy; 2025 BookHarbor. All rights reserved.
     </footer>

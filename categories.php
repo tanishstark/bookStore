@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <style>
         :root {
             --primary: #1e1e1e;
@@ -117,21 +118,22 @@
         <h2 class="section-title">Explore Book Categories</h2>
         <!-- Place this inside <section class="container"> just above the .grid -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; align-items: center;">
-            <input type="text" placeholder="Search categories..." style="
-    flex: 1;
-    min-width: 200px;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-  ">
+            <input type="text" placeholder="Search categories..."
+                style="
+        flex: 1;
+        min-width: 200px;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+    ">
 
             <select style="
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-  ">
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+    ">
                 <option>Sort by</option>
                 <option>Popular</option>
                 <option>Newest</option>
@@ -140,38 +142,21 @@
         </div>
 
         <div class="grid">
-            <div class="category-card">
-                <img src="image/friction.jpeg" alt="Fiction">
-                <h3>Fiction</h3>
-            </div>
-            <div class="category-card">
-                <img src="image/Science.jpg" alt="Science">
-                <h3>Science</h3>
-            </div>
-            <div class="category-card">
-                <img src="image/selfhelf.jpg" alt="Self Help">
-                <h3>Self Help</h3>
-            </div>
-            <div class="category-card">
-                <img src="image/biography.jpg" alt="Biographies">
-                <h3>Biographies</h3>
-            </div>
-            <div class="category-card">
-                <img src="image/child.jpg" alt="Children">
-                <h3>Children's Books</h3>
-            </div>
-            <div class="category-card">
-                <img src="image/history.jpg" alt="History">
-                <h3>History</h3>
-            </div>
-            <div class="category-card">
-                <img src="image/technology.jpg" alt="Technology">
-                <h3>Technology</h3>
-            </div>
-            <div class="category-card">
-                <img src="image/comic.jpg" alt="Comics">
-                <h3>Comics & Manga</h3>
-            </div>
+
+            <?php
+            $sql = "SELECT * FROM `categories`";
+            $result = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_assoc($result)) {
+                $categories_id = $row['categories_id'];
+                $categories_image = $row['categories_image'];
+                $categories_name = $row['categories_name'];
+                echo '<div class="category-card">
+                <a class="text-decoration-none text-dark" href="book_list.php?category=' . $categories_name . '"><img src="' . $categories_image . '" alt="' . $categories_name . '">
+                    <h3>' . $categories_name . '</h3>
+                </a>
+            </div>';
+            }
+            ?>
         </div>
     </section>
 

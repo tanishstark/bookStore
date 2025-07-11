@@ -7,6 +7,7 @@
   <title>BookHarbor | Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <style>
     :root {
       --primary: #1e1e1e;
@@ -199,7 +200,7 @@
         $po_desc = $row['book_desc'];
         $po_id = $row['popular_id'];
         echo '<div class="card">
-        <a href="book_list.php?po_id=' . $po_id . '&category=' . $po_name . '"><img src="image/p' . $po_change_img . '.jpeg" alt="Fiction"></a>
+        <a href="book_list.php?category=' . $po_name . '"><img src="image/p' . $po_change_img . '.jpeg" alt="Fiction"></a>
         <div class="card-content">
           <h3><a class="text-decoration-none text-dark" href="book_list.php?po_id=' . $po_id . '&category=' . $po_name . '">' . $po_name . '</a></h3>
           <p><a class="text-decoration-none text-dark" href="book_list.php?po_id=' . $po_id . '&category=' . $po_name . '">' . $po_desc . '</a></p>
@@ -216,21 +217,24 @@
 
 
       <?php
-      $sql = "SELECT * FROM `feature_book`";
+      $sql = "SELECT * FROM `booklist`";
       $result = mysqli_query($conn, $sql);
-      $fe_change_img = 1;
+      $preview_books = 0;
       while ($row = mysqli_fetch_assoc($result)) {
-        $fe_name = $row['feature_name'];
-        $fe_desc = $row['feature_desc'];
-        $fe_id = $row['feature_id'];
-        echo '<div class="card">
-        <img src="image/f' . $fe_change_img . '.jpeg" alt="Educated">
-        <div class="card-content">
+        $fe_name = $row['book_title'];
+        $fe_desc = $row['book_desc'];
+        $fe_id = $row['book_id'];
+        $fe_image = $row['image'];
+        if ($preview_books < 8) {
+          echo '<a class="text-decoration-none text-dark" href="book_details.php?book_id=' . $fe_id . ' "><div class="card">
+          <img src="' . $fe_image . '" alt="Featured Book">
+          <div class="card-content">
           <h3>' . $fe_name . '</h3>
-          <p>' . $fe_desc . '</p>
-        </div>
-      </div>';
-        $fe_change_img++;
+          <p>' . implode(' ', array_slice(explode(' ', $fe_desc), 0, 7)) . '</p>
+          </div>
+          </div></a>';
+        }
+        $preview_books++;
       }
       ?>
 
