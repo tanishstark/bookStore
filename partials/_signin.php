@@ -111,14 +111,14 @@
 
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="terms" required>
-                    <label class="form-check-label" for="terms">I agree to the <a href="#" class="text-decoration-none">terms & conditions</a></label>
+                    <label class="form-check-label" for="terms">I agree to the <a href="../about.php" class="text-success text-decoration-none">terms & conditions</a></label>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100">Create Account</button>
+                <button type="submit" class="btn btn-success w-100">Create Account</button>
             </form>
 
             <p class="mt-3 text-center small">
-                Already have an account? <a href="login.html" class="text-primary text-decoration-none">Login here</a>
+                Already have an account? <a href="_login.php" class="text-success text-decoration-none">Login here</a>
             </p>
         </div>
     </div>

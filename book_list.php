@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/_navbar_style.css" />
     <link rel="stylesheet" href="css/_footer.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -66,24 +67,20 @@
 <body>
     <?php include 'partials/_navbar.php'; ?>
     <?php
-    $po_category_name = $_GET['category'];
+    $genre = $_GET['category'];
     ?>
     <div class="container py-5">
-        <h2 class="text-center mb-4">📚<?php echo $po_category_name; ?> Popular Books Collection</h2>
+        <h2 class="text-center mb-4">📚<?php echo $genre; ?> Popular Books Collection</h2>
         <div class="row g-4">
 
-
             <?php
-            $po_category_idh = $_GET['po_id'];
-            ?>
-
-            <?php
-            $sql = "SELECT * FROM `booklist` WHERE po_category_id='$po_category_idh';";
+            $sql = "SELECT * FROM `booklist` WHERE genre='$genre';";
             $result = mysqli_query($conn, $sql);
-            $booklist_change_img = 1;
+
             while ($row = mysqli_fetch_assoc($result)) {
                 $book_id = $row['book_id'];
-                $po_category_id = $row['po_category_id'];
+                $genre = $row['genre'];
+                $image = $row['image'];
                 $book_title = $row['book_title'];
                 $ratings = $row['ratings'];
                 $book_disc_price = $row['book_disc_price'];
@@ -92,7 +89,7 @@
 
                 echo '<div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="book-card p-2">
-                    <a class="text-decoration-none text-dark" href="book_details.php?book_id='.$book_id.' "><img src="image/booklist/' . $po_category_name . '_' . $booklist_change_img . '.jpeg" class="book-img" alt="' . $book_title . '">
+                    <a class="text-decoration-none text-dark" href="book_details.php?book_id=' . $book_id . ' "><img src="' . $image . '" class="book-img" alt="' . $book_title . '">
                         <div class="p-2">
                             <h6>' . $book_title . '</h6>
                             <div class="rating">' . $ratings . '</div>
@@ -102,7 +99,6 @@
                     </a>
                 </div>
             </div>';
-                $booklist_change_img++;
             }
             ?>
 
