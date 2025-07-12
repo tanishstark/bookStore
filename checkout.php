@@ -80,7 +80,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
         .gradient-heading {
             background: linear-gradient(to right, #28a745, #20c997);
-            -webkit-background-clip: text;
+
             -webkit-text-fill-color: transparent;
             font-weight: 700;
         }

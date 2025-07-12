@@ -49,7 +49,7 @@
 
         .gradient-heading {
             background: linear-gradient(to right, #007bff, #00bcd4);
-            -webkit-background-clip: text;
+
             -webkit-text-fill-color: transparent;
             font-weight: 700;
         }
