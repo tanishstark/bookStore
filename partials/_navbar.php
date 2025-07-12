@@ -19,15 +19,19 @@
     <a class="btn btn-success d-flex align-items-center" href="cart.php" role="button" style="gap: 6px; padding: 6px 16px;">
   <span class="material-symbols-outlined" style="font-size: 26px; vertical-align: middle;">add_shopping_cart</span>
   <span style="font-size: 1rem; font-weight: 500;">Cart</span>
-</a>
-      <a class="btn btn-outline-success mx-0" href="admin.php">Admin</a>
-    <div class="d-flex align-items-center account-hover" style="gap: 12px; background-color: rgba(68, 145, 86, 0.2); padding: 6px 12px; border-radius: 20px; cursor: pointer; transition: background-color 0.3s ease;">
-      <img src="https://img.icons8.com/ios-filled/50/user.png" alt="User Icon" style="width: 28px; height: 28px; border-radius: 50%; background-color:rgb(17, 221, 65);">
-      <span class="text-dark fw-medium" style="font-size: 16px;">' . ($_SESSION['userName']) . '</span>
-    </div>
-    <a class="btn btn-outline-danger mx-0" href="partials/_logout.php" role="button">Logout</a>
-    ';
-  } else {
+</a>';
+  
+      if($_SESSION['userName'] == 'Admin'){
+        echo '<a class="btn btn-outline-dark mx-0" href="admin.php">Admin Dashboard</a>';
+      }   
+      echo '
+        <div class="d-flex align-items-center account-hover" style="gap: 12px; background-color: rgba(68, 145, 86, 0.2); padding: 6px 12px; border-radius: 20px; cursor: pointer; transition: background-color 0.3s ease;">
+          <img src="https://img.icons8.com/ios-filled/50/user.png" alt="User Icon" style="width: 28px; height: 28px; border-radius: 50%; background-color:rgb(17, 221, 65);">
+          <span class="text-dark fw-medium" style="font-size: 16px;">' . ($_SESSION['userName']) . '</span>
+        </div> <a class="btn btn-outline-danger mx-0" href="partials/_logout.php" role="button">Logout</a>
+        ';
+  } 
+  else {
     $showAlert1 = "Login first to see cart";
     echo '<a class="btn btn-success d-flex align-items-center" href="partials/_login.php?visit=' . $showAlert1 . '" role="button" style="gap: 6px; padding: 6px 16px;">
   <span class="material-symbols-outlined" style="font-size: 26px; vertical-align: middle;">add_shopping_cart</span>

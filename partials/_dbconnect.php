@@ -2,5 +2,5 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "bookha";
+$database = "book";
 $conn = mysqli_connect($servername, $username, $password, $database);

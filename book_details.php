@@ -159,12 +159,21 @@ include 'partials/_navbar.php';
   </div>
   <form action="" method="post">
     <input type="hidden" name="book_id" value="<?php echo $book_id ?>">
-    <div class="mb-3">
+    <?php 
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+      echo '<div class="mb-3">
       <textarea name="review" class="form-control" placeholder="Share your thoughts about the product..."></textarea>
     </div>
     <button type="submit" name="submit_review" class="btn btn-success">
       <i class="bi bi-send me-1"></i>Submit
-    </button>
+    </button>';
+    }
+    else{
+      echo '<div class="mb-3">
+      <p name="review" class="form-control text-primary">Login or Create an account</p>
+    </div>';
+    }
+    ?>
   </form>
 </div>
 

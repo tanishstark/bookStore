@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit_edit'])) {
   $category = $_POST['categoryEdit'];
 
   try {
-    $query = "UPDATE `booklist` SET `image` = '$image', `book_desc` = '$desc', `po_category_id` = '$category', `book_title` = '$title', `ratings` = '★★★★★ (4.8/5)', `book_disc_price` = '$retail_price', `original_price` = '$org_price', `genre` = '$genre', `page` = '$pages', `publisher` = '$publisher', `ISBN` = '$isbn' WHERE `book_id` = $book_id";
+    $query = "UPDATE `booklist` SET `image` = '$image', `book_desc` = '$desc', `book_title` = '$title', `ratings` = '★★★★★ (4.8/5)', `book_disc_price` = '$retail_price', `original_price` = '$org_price', `genre` = '$genre', `page` = '$pages', `publisher` = '$publisher', `ISBN` = '$isbn' WHERE `book_id` = $book_id";
     $result = mysqli_query($conn, $query);
 
     if ($result) {
@@ -79,14 +79,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_book'])) {
   $pages = $_POST['pages'];
   $publisher = $_POST['publisher'];
   $isbn = $_POST['isbn'];
-  $category = $_POST['category'];
+  // $category = $_POST['category'];
   // $ratings = $_POST['ratings'];
 
   try {
     $query = "INSERT INTO `booklist` 
-      (`book_id`, `image`, `book_desc`, `po_category_id`, `book_title`, `ratings`, `book_disc_price`, `original_price`, `timestamp`, `genre`, `page`, `publisher`, `ISBN`) 
+      (`book_id`, `image`, `book_desc`, `book_title`, `ratings`, `book_disc_price`, `original_price`, `timestamp`, `genre`, `page`, `publisher`, `ISBN`) 
       VALUES 
-      (NULL, '$image' , '$desc', '$category', '$title', '★★★★☆ (4.6/5)', '$retail_price', '$org_price', current_timestamp(), '$genre', '$pages', '$publisher', '$isbn')";
+      (NULL, '$image' , '$desc', '$title', '★★★★☆ (4.6/5)', '$retail_price', '$org_price', current_timestamp(), '$genre', '$pages', '$publisher', '$isbn')";
 
     $result = mysqli_query($conn, $query);
     if ($result) {
@@ -172,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_book'])) {
               </div>
               <div class="col-md-4">
                 <label for="categoryEdit" class="form-label">Category</label>
-                <input type="text" id="categoryEdit" name="categoryEdit" class="form-control" placeholder="Enter Category" required />
+                <input type="text" id="categoryEdit" name="categoryEdit" class="form-control" placeholder="Enter Category" />
               </div>
             </div>
         </div>
