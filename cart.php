@@ -254,7 +254,7 @@
                         <span>Total</span>
                         <span>₹<?php echo $total_discount; ?></span>
                     </div>
-                    <button class="btn btn-checkout w-100 mb-3">Proceed to Checkout</button>
+                    <a href="checkout.php" class="btn btn-checkout w-100 mb-3">Proceed to Checkout</a>
                     <p class="text-muted mb-1">Accepted Payments:</p>
                     <div class="payment-icons">
                         <img src="https://img.icons8.com/color/48/visa.png" alt="Visa" />
